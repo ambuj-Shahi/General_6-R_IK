@@ -25,6 +25,6 @@ Coeff_x0, Coeff_x1, and Coeff_x2 respectively. Each of the files in these folder
  Output files:
 
  The output file is also a 'CSV' file, in which the all the solutions to the inverse kinematics problem for the general 6-R serial manipulator in consideration,
- are stored. In the folder 'example1', one such 'CSV' file can be located named, 'example1_output.csv'. Similar files are there in the other example folders as well.
+ are stored. In the folder 'example1', one such 'CSV' file can be located, named, 'example1_output.csv'. Similar files are there in the other example folders as well.
 
  
