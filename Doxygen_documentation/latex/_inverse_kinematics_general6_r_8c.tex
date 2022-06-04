@@ -1,0 +1,127 @@
+\hypertarget{_inverse_kinematics_general6_r_8c}{}\section{G\+:/\+Gen\+\_\+6-\/\+R\+\_\+\+I\+K\+\_\+\+Codes/\+New folder/\+Examples/\+I\+K/\+Inverse\+Kinematics\+General6R.c File Reference}
+\label{_inverse_kinematics_general6_r_8c}\index{G\+:/\+Gen\+\_\+6-\/\+R\+\_\+\+I\+K\+\_\+\+Codes/\+New folder/\+Examples/\+I\+K/\+Inverse\+Kinematics\+General6\+R.\+c@{G\+:/\+Gen\+\_\+6-\/\+R\+\_\+\+I\+K\+\_\+\+Codes/\+New folder/\+Examples/\+I\+K/\+Inverse\+Kinematics\+General6\+R.\+c}}
+
+
+The program is used to find the Inverse kinematics solutions for a general 6-\/R serial manipulator.  
+
+
+{\ttfamily \#include \char`\"{}cx.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$complex.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+math.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+eigen.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+vector.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+complex.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+complex\+\_\+math.\+h$>$}\newline
+{\ttfamily \#include $<$gsl/gsl\+\_\+statistics.\+h$>$}\newline
+Include dependency graph for Inverse\+Kinematics\+General6\+R.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_inverse_kinematics_general6_r_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \+\_\+\+Complex \hyperlink{_inverse_kinematics_general6_r_8c_a4d9425425b25a36edd0f0fdfd3e275e3}{user\+\_\+atan2\+\_\+c} (double \+\_\+\+Complex z1, double \+\_\+\+Complex z2)
+\item 
+struct \hyperlink{struct_solution}{Solution} \hyperlink{_inverse_kinematics_general6_r_8c_a86f312234822135a460f9bf458065774}{Inverse\+Kinematics\+General6R} (double dhmat\mbox{[}10\mbox{]}\mbox{[}10\mbox{]}, double eemat\mbox{[}10\mbox{]}\mbox{[}10\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The program is used to find the Inverse kinematics solutions for a general 6-\/R serial manipulator. 
+
+\begin{DoxyDate}{Date}
+September 30, 2017 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_inverse_kinematics_general6_r_8c_a86f312234822135a460f9bf458065774}\label{_inverse_kinematics_general6_r_8c_a86f312234822135a460f9bf458065774}} 
+\index{Inverse\+Kinematics\+General6\+R.\+c@{Inverse\+Kinematics\+General6\+R.\+c}!Inverse\+Kinematics\+General6R@{Inverse\+Kinematics\+General6R}}
+\index{Inverse\+Kinematics\+General6R@{Inverse\+Kinematics\+General6R}!Inverse\+Kinematics\+General6\+R.\+c@{Inverse\+Kinematics\+General6\+R.\+c}}
+\subsubsection{\texorpdfstring{Inverse\+Kinematics\+General6\+R()}{InverseKinematicsGeneral6R()}}
+{\footnotesize\ttfamily struct \hyperlink{struct_solution}{Solution} Inverse\+Kinematics\+General6R (\begin{DoxyParamCaption}\item[{double}]{dhmat\mbox{[}10\mbox{]}\mbox{[}10\mbox{]},  }\item[{double}]{eemat\mbox{[}10\mbox{]}\mbox{[}10\mbox{]} }\end{DoxyParamCaption})}
+
+Inverse\+Kinematics\+General6R\+: Function to compute the Inverse kinematics solutions for a general 6-\/R serial manipulator.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dhmat} & A 2-\/D array containing the D-\/H parameters of the 6-\/R robot in cosideration. \\
+\hline
+{\em eemat} & A 2-\/D array containing the End-\/effector pose of the 6-\/R robot in consideration. The End-\/effector pose being described by the 3 x 3 rotation matix and 3x1 position vector.\\
+\hline
+\end{DoxyParams}
+Further information about dhmat and eemat is given in the \textquotesingle{}Input files\textquotesingle{} section of the document \textquotesingle{}I\+K\+\_\+6\+R\+\_\+\+Program\+\_\+\+Documentation\textquotesingle{}.
+
+Variables used\+: \tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Variable }&\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Variable }&\textbf{ Description  }\\\cline{1-2}
+\endhead
+rtod &Constant to convert angle in radians to angle in degrees. \\\cline{1-2}
+lambda1 to lambda6 &cos(alpha1) to cos(alpha6), where alphai is from the D-\/H table. \\\cline{1-2}
+mu1 to mu6 &sin(alpha1) to sin(alpha6), where alphai is from the D-\/H table. \\\cline{1-2}
+vars &A 2-\/D array to store the D-\/H parameters and the End-\/effector pose of the 6-\/R robot in cosideration, to be used in other variables. \\\cline{1-2}
+cmatx2 &The 12 x 12 coefficient matrix, \textquotesingle{}A\textquotesingle{}. \\\cline{1-2}
+cmatx1 &The 12 x 12 coefficient matrix, \textquotesingle{}B\textquotesingle{}. \\\cline{1-2}
+cmatx0 &The 12 x 12 coefficient matrix, \textquotesingle{}C\textquotesingle{}. The descriptions of A, B, and C is there in the following function. \\\cline{1-2}
+cmatx01 to cmatx06 &The rows of the 6 x 9 submatrix used to form the 12 x 12 matrix, cmatx0. \\\cline{1-2}
+cmatx11 to cmatx16 &The rows of the 6 x 9 submatrix used to form the 12 x 12 matrix, cmatx1. \\\cline{1-2}
+cmatx21 to cmatx26 &The rows of the 6 x 9 submatrix used to form the 12 x 12 matrix, cmatx2. \\\cline{1-2}
+i, j, l, m &counters used in the function. \\\cline{1-2}
+angle &User-\/defined Structure type variable, \hyperlink{struct_solution}{Solution}. Its definition is there in the header file, \textquotesingle{}cx.\+h\textquotesingle{} \\\cline{1-2}
+\end{longtabu}
+
+
+\begin{DoxyReturn}{Returns}
+angle 
+\end{DoxyReturn}
+The 12 x 12 matrix cmatx1 has also been formed in the same way as the matrix cmatx0. The rows of the 6 x 9 submatrix used in the formation of cmatx1 are cmatx11 to cmatx16. Each of the entries of these rows have been given a generic nomenclature of cx1ij, where i and j denotes the row position and column position of the entry in the submatrix, respectively.
+
+Definition at line 79 of file Inverse\+Kinematics\+General6\+R.\+c.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{_inverse_kinematics_general6_r_8c_a86f312234822135a460f9bf458065774_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_inverse_kinematics_general6_r_8c_a4d9425425b25a36edd0f0fdfd3e275e3}\label{_inverse_kinematics_general6_r_8c_a4d9425425b25a36edd0f0fdfd3e275e3}} 
+\index{Inverse\+Kinematics\+General6\+R.\+c@{Inverse\+Kinematics\+General6\+R.\+c}!user\+\_\+atan2\+\_\+c@{user\+\_\+atan2\+\_\+c}}
+\index{user\+\_\+atan2\+\_\+c@{user\+\_\+atan2\+\_\+c}!Inverse\+Kinematics\+General6\+R.\+c@{Inverse\+Kinematics\+General6\+R.\+c}}
+\subsubsection{\texorpdfstring{user\+\_\+atan2\+\_\+c()}{user\_atan2\_c()}}
+{\footnotesize\ttfamily double \+\_\+\+Complex user\+\_\+atan2\+\_\+c (\begin{DoxyParamCaption}\item[{double \+\_\+\+Complex}]{z1,  }\item[{double \+\_\+\+Complex}]{z2 }\end{DoxyParamCaption})}
+
+user\+\_\+atan2\+\_\+c\+: gives the arc tangent of z2/z1, taking into account which quadrant the point (z1,z2) is in, where \textquotesingle{}z1\textquotesingle{} and \textquotesingle{}z2\textquotesingle{} are both complex nos.
+
+Variables used\+: \tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Variable }&\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Variable }&\textbf{ Description  }\\\cline{1-2}
+\endhead
+z3 &Complex no. to store the output of the function, user\+\_\+atan2\+\_\+c. \\\cline{1-2}
+\end{longtabu}
+\begin{DoxyReturn}{Returns}
+z3. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Inverse\+Kinematics\+General6\+R.\+c.
+
